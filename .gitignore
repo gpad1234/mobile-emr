@@ -28,6 +28,12 @@ yarn-error.*
 
 # macOS
 .DS_Store
+
+# Environment — local overrides with real credentials
+.env.local
+
+# Generated json-server database
+server/db.json
 *.pem
 
 # local env files

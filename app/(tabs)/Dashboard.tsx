@@ -1,6 +1,6 @@
+import { useRouter } from 'expo-router';
 import React from 'react';
-import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 const focusAreas = [
   { title: 'Critical labs', detail: '3 results awaiting sign-off' },
@@ -22,7 +22,7 @@ const statCards = [
 ];
 
 export default function DashboardScreen() {
-  const navigation = useNavigation();
+  const router = useRouter();
   return (
     <ScrollView style={styles.container} contentContainerStyle={{paddingBottom: 32}}>
       <View style={styles.heroSection}>
@@ -54,10 +54,10 @@ export default function DashboardScreen() {
       <View style={styles.actionsCard}>
         <Text style={styles.actionsHelper}>Need to act fast? Capture details or invite the team.</Text>
         <View style={styles.actionsRow}>
-          <TouchableOpacity style={styles.primaryBtn} onPress={() => navigation.navigate('AddPatient' as never)}>
+          <TouchableOpacity style={styles.primaryBtn} onPress={() => router.push('/(tabs)/AddPatient')}>
             <Text style={styles.btnText}>➕ Add patient</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.secondaryBtn} onPress={() => navigation.navigate('PatientList' as never)}>
+          <TouchableOpacity style={styles.secondaryBtn} onPress={() => router.push('/(tabs)/PatientList')}>
             <Text style={styles.btnText}>👥 View all patients</Text>
           </TouchableOpacity>
         </View>
